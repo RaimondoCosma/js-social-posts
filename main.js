@@ -55,3 +55,27 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+
+// Dichiaro variabile relativa al container dei posts
+const postsContainer = document.querySelector('.posts-list');
+
+// Ciclo per inserire i poost dinamicamente
+for ( let i = 0; i < posts.length; i++ ){
+    const post = posts[i];
+    const postItem = document.getElementById('template-posts').content.cloneNode(true);
+    // Imposto nomi degli autori
+    postItem.querySelector('.post-meta__author').innerHTML = post.author.name;
+    // Variabile sull'avatar con controllo provvisorio
+    if ( post.author.image ){
+        postItem.querySelector('.profile-pic').setAttribute('src', post.author.image);
+    } else {
+        postItem.querySelector('.profile-pic').remove();
+    }
+    // Imposto le immagini postate
+    postItem.querySelector('.post__image img').setAttribute('src', post.media);
+    // Imposto i like
+    postItem.querySelector('.js-likes-counter').innerHTML = post.likes;
+    
+    postsContainer.append(postItem);
+}
