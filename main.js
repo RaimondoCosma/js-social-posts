@@ -66,6 +66,8 @@ for ( let i = 0; i < posts.length; i++ ){
     const postItem = document.getElementById('template-posts').content.cloneNode(true);
     // Imposto nomi degli autori
     postItem.querySelector('.post-meta__author').innerHTML = post.author.name;
+    // Imposto data creazione
+    postItem.querySelector('.post-meta__time').innerHTML = new Date(post.created).toLocaleDateString();
     // Variabile sull'avatar con controllo provvisorio
     if ( post.author.image ){
         postItem.querySelector('.profile-pic').setAttribute('src', post.author.image);
@@ -98,7 +100,7 @@ for ( let i = 0; i < posts.length; i++ ){
         } else {
             likeButton.classList.add('like-button--liked');
             likeCounter.innerHTML = Number(likeCounter.innerHTML) + 1;
-            likedPost.push(post.id);
         }
     })
+    likedPost.push(post.id);
 }
