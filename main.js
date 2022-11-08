@@ -72,19 +72,33 @@ for ( let i = 0; i < posts.length; i++ ){
     } else {
         postItem.querySelector('.profile-pic').remove();
     }
+    // Imposto id delle foto
+    postItem.querySelector('.js-like-button').setAttribute('data-postid', post.id);
     // Imposto le immagini postate
     postItem.querySelector('.post__image img').setAttribute('src', post.media);
     // Imposto i like
     postItem.querySelector('.js-likes-counter').innerHTML = post.likes;
-
+    // Imposto id dei like
+    postItem.querySelector('.js-likes-counter').setAttribute('id', `like-counter-${post.id}`)
+    
     postsContainer.append(postItem);
 }
-
+    
 // Creo array nel quale andrò ad inserire i post con il mi piace
 const likedPost = [];
-
-const likeButton = document.querySelectorAll('.js-like-button');
-console.log(likeButton);
-likeButton.addEventListner('click', function(){
-    play.classList.add('like-button--liked');
-})
+console.log(likedPost);
+for ( let i = 0; i < posts.length; i++ ){
+    const post = posts[i];
+    let likeButton = document.querySelector(`[data-postid="${post.id}"]`);
+    let likeCounter = document.querySelector(`#like-counter-${post.id}`);
+    likeButton.addEventListener('click', function(){
+        if ( likeButton.classList.contains('like-button--liked') ){
+            likeButton.classList.remove('like-button--liked');
+            likeCounter.innerHTML = Number(likeCounter.innerHTML) - 1;
+        } else {
+            likeButton.classList.add('like-button--liked');
+            likeCounter.innerHTML = Number(likeCounter.innerHTML) + 1;
+            likedPost.push(post.id);
+        }
+    })
+}
