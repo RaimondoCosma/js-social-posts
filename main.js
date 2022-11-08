@@ -76,6 +76,15 @@ for ( let i = 0; i < posts.length; i++ ){
     postItem.querySelector('.post__image img').setAttribute('src', post.media);
     // Imposto i like
     postItem.querySelector('.js-likes-counter').innerHTML = post.likes;
-    
+
     postsContainer.append(postItem);
 }
+
+// Creo array nel quale andrò ad inserire i post con il mi piace
+const likedPost = [];
+
+const likeButton = document.querySelectorAll('.js-like-button');
+console.log(likeButton);
+likeButton.addEventListner('click', function(){
+    play.classList.add('like-button--liked');
+})
