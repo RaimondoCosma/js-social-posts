@@ -1,3 +1,13 @@
+/* ------------------------
+    FUNCTION
+------------------------ */
+function onlyCapitalLetters (str) {
+    return str.replace(/[^A-Z]+/g, "");
+}
+
+/* ------------------------
+    MAIN
+------------------------ */
 const posts = [
     {
         "id": 1,
@@ -56,7 +66,6 @@ const posts = [
     }
 ];
 
-
 // Dichiaro variabile relativa al container dei posts
 const postsContainer = document.querySelector('.posts-list');
 
@@ -73,6 +82,7 @@ for ( let i = 0; i < posts.length; i++ ){
         postItem.querySelector('.profile-pic').setAttribute('src', post.author.image);
     } else {
         postItem.querySelector('.profile-pic').remove();
+        postItem.querySelector('.post-meta__icon').innerHTML = onlyCapitalLetters(post.author.name);
     }
     // Imposto id delle foto
     postItem.querySelector('.js-like-button').setAttribute('data-postid', post.id);
