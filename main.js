@@ -22,7 +22,7 @@ const posts = [
     },
     {
         "id": 2,
-        "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        "content": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
         "media": "https://unsplash.it/600/400?image=112",
         "author": {
             "name": "Sofia Perlari",
@@ -33,7 +33,7 @@ const posts = [
     },
     {
         "id": 3,
-        "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..",
         "media": "https://unsplash.it/600/400?image=234",
         "author": {
             "name": "Chiara Passaro",
@@ -44,7 +44,7 @@ const posts = [
     },
     {
         "id": 4,
-        "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        "content": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
         "media": "https://unsplash.it/600/400?image=24",
         "author": {
             "name": "Luca Formicola",
@@ -55,7 +55,7 @@ const posts = [
     },
     {
         "id": 5,
-        "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+        "content": "Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.",
         "media": "https://unsplash.it/600/400?image=534",
         "author": {
             "name": "Alessandro Sainato",
@@ -86,6 +86,8 @@ for ( let i = 0; i < posts.length; i++ ){
     }
     // Imposto id delle foto
     postItem.querySelector('.js-like-button').setAttribute('data-postid', post.id);
+    // Imposto contenuto del testo
+    postItem.querySelector('.post__text').innerHTML = post.content;
     // Imposto le immagini postate
     postItem.querySelector('.post__image img').setAttribute('src', post.media);
     // Imposto i like
