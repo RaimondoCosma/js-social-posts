@@ -103,8 +103,7 @@ for ( let i = 0; i < posts.length; i++ ){
 // Creo array nel quale andrò ad inserire i post con il mi piace
 let likedPost = [];
 
-for ( let i = 0; i < posts.length; i++ ){
-    const post = posts[i];
+posts.forEach((post) => {
     // Dichiaro variabile bottone tramite attributo data-postid
     let likeButton = document.querySelector(`[data-postid="${post.id}"]`);
     // Dichiaro variabile per il counter dei like
@@ -128,4 +127,4 @@ for ( let i = 0; i < posts.length; i++ ){
             likedPost.push(post.id);
         }
     })
-}
+})
