@@ -100,13 +100,17 @@ for ( let i = 0; i < posts.length; i++ ){
 let likedPost = [];
 for ( let i = 0; i < posts.length; i++ ){
     const post = posts[i];
+    // Dichiaro variabile bottone tramite attributo data-postid
     let likeButton = document.querySelector(`[data-postid="${post.id}"]`);
+    // Dichiaro variabile per il counter dei like
     let likeCounter = document.querySelector(`#like-counter-${post.id}`);
+    // Aggiungo evento click al bottone
     likeButton.addEventListener('click', function(){
+        // Imposto le condizioni per cambiare colore al tasto 'Mi piace', modificare counter dei like, aggiornare array dei post con il like
         if ( likeButton.classList.contains('like-button--liked') ){
             likeButton.classList.remove('like-button--liked');
             likeCounter.innerHTML = Number(likeCounter.innerHTML) - 1;
-        // Tolgo id dall'array   
+        // Rimuovo id dall'array se tolgo il mi piace  
         for( let i = 0; i < likedPost.length; i++){         
             if ( likedPost[i] === post.id) {         
                 likedPost.splice(i, 1); 
@@ -117,7 +121,5 @@ for ( let i = 0; i < posts.length; i++ ){
             likeCounter.innerHTML = Number(likeCounter.innerHTML) + 1;
             likedPost.push(post.id);
         }
-        return likeButton;
     })
 }
-console.log(likedPost);
