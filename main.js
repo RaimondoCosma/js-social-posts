@@ -97,8 +97,7 @@ for ( let i = 0; i < posts.length; i++ ){
 }
     
 // Creo array nel quale andrò ad inserire i post con il mi piace
-const likedPost = [];
-console.log(likedPost);
+let likedPost = [];
 for ( let i = 0; i < posts.length; i++ ){
     const post = posts[i];
     let likeButton = document.querySelector(`[data-postid="${post.id}"]`);
@@ -107,10 +106,18 @@ for ( let i = 0; i < posts.length; i++ ){
         if ( likeButton.classList.contains('like-button--liked') ){
             likeButton.classList.remove('like-button--liked');
             likeCounter.innerHTML = Number(likeCounter.innerHTML) - 1;
+        // Tolgo id dall'array   
+        for( let i = 0; i < likedPost.length; i++){         
+            if ( likedPost[i] === post.id) {         
+                likedPost.splice(i, 1); 
+            }        
+        }
         } else {
             likeButton.classList.add('like-button--liked');
             likeCounter.innerHTML = Number(likeCounter.innerHTML) + 1;
+            likedPost.push(post.id);
         }
+        return likeButton;
     })
-    likedPost.push(post.id);
 }
+console.log(likedPost);
