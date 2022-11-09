@@ -77,13 +77,15 @@ for ( let i = 0; i < posts.length; i++ ){
     postItem.querySelector('.post-meta__author').innerHTML = post.author.name;
     // Imposto data creazione
     postItem.querySelector('.post-meta__time').innerHTML = new Date(post.created).toLocaleDateString();
-    // Variabile sull'avatar con controllo provvisorio
+    // Variabile sull'avatar con controllo
     if ( post.author.image ){
         postItem.querySelector('.profile-pic').setAttribute('src', post.author.image);
     } else {
         postItem.querySelector('.profile-pic').remove();
         postItem.querySelector('.post-meta__icon').innerHTML = onlyCapitalLetters(post.author.name);
     }
+    // Modifivo alt dell'avatar
+    postItem.querySelector('.profile-pic').setAttribute('alt', post.author.name);
     // Imposto id delle foto
     postItem.querySelector('.js-like-button').setAttribute('data-postid', post.id);
     // Imposto contenuto del testo
@@ -100,6 +102,7 @@ for ( let i = 0; i < posts.length; i++ ){
     
 // Creo array nel quale andrò ad inserire i post con il mi piace
 let likedPost = [];
+
 for ( let i = 0; i < posts.length; i++ ){
     const post = posts[i];
     // Dichiaro variabile bottone tramite attributo data-postid
