@@ -110,7 +110,8 @@ for ( let i = 0; i < posts.length; i++ ){
     // Dichiaro variabile per il counter dei like
     let likeCounter = document.querySelector(`#like-counter-${post.id}`);
     // Aggiungo evento click al bottone
-    likeButton.addEventListener('click', function(){
+    likeButton.addEventListener('click', function(e){
+        e.preventDefault();
         // Imposto le condizioni per cambiare colore al tasto 'Mi piace', modificare counter dei like, aggiornare array dei post con il like
         if ( likeButton.classList.contains('like-button--liked') ){
             likeButton.classList.remove('like-button--liked');
