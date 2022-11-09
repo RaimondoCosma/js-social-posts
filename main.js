@@ -84,7 +84,7 @@ for ( let i = 0; i < posts.length; i++ ){
         postItem.querySelector('.profile-pic').setAttribute('src', post.author.image);
     } else {
         postItem.querySelector('.profile-pic').remove();
-        postItem.querySelector('.post-meta__icon').innerHTML = onlyCapitalLetters(post.author.name);
+        postItem.querySelector('.post-meta__icon').innerHTML = `<div style="width:60px; height:60px; font-size:30px; font-weight:bold; text-align:center; line-height:60px">${onlyCapitalLetters(post.author.name)}</div>`;
     }
     // Imposto id delle foto
     postItem.querySelector('.js-like-button').setAttribute('data-postid', post.id);
