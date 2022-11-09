@@ -77,6 +77,8 @@ for ( let i = 0; i < posts.length; i++ ){
     postItem.querySelector('.post-meta__author').innerHTML = post.author.name;
     // Imposto data creazione
     postItem.querySelector('.post-meta__time').innerHTML = new Date(post.created).toLocaleDateString();
+    // Modifico alt dell'avatar
+    postItem.querySelector('.profile-pic').setAttribute('alt', post.author.name);
     // Variabile sull'avatar con controllo
     if ( post.author.image ){
         postItem.querySelector('.profile-pic').setAttribute('src', post.author.image);
@@ -84,8 +86,6 @@ for ( let i = 0; i < posts.length; i++ ){
         postItem.querySelector('.profile-pic').remove();
         postItem.querySelector('.post-meta__icon').innerHTML = onlyCapitalLetters(post.author.name);
     }
-    // Modifivo alt dell'avatar
-    postItem.querySelector('.profile-pic').setAttribute('alt', post.author.name);
     // Imposto id delle foto
     postItem.querySelector('.js-like-button').setAttribute('data-postid', post.id);
     // Imposto contenuto del testo
